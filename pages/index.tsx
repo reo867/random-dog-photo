@@ -18,12 +18,12 @@ const IndexPage: NextPage<Props> = ({initialImageUrl }) => {
     const handleClick = async () => {
         setLoading(true);
         const newImage = await fetchImage();
-        setImageUrl(newImage.url)
+        setImageUrl(newImage.url);
         setLoading(false);
     }
     return (
         <div className={styles.page}>
-            <button onClick={handleClick} className={styles.button}>他のにゃんこも見る</button>
+            <button onClick={handleClick} className={styles.button}>他のいんぬも見る</button>
             <div className={styles.frame}>{loading || <img src={imageUrl}/> }</div>
         </div>
     );
@@ -35,19 +35,23 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     return {
         props: {
             initialImageUrl: image.url,
-    }
+    },
     }
 }
 
 type Image = {
     url:string;
 }
+type DogImageResponse = {
+    message:string;
+    status: string;
+}
 
 const fetchImage = async (): Promise<Image> => {
-  const res = await fetch("https://api.thecatapi.com/v1/images/search");
-  const images = await res.json();
+  const res = await fetch("https://dog.ceo/api/breeds/image/random");
+  const images:DogImageResponse = await res.json();
   console.log(images);
-  return images[0];
+  return {url: images.message};
 };
 
-fetchImage()
+// fetchImage()
