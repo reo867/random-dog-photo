@@ -44,7 +44,7 @@
 }
 
 .frame {
-  width: 400px;
+  /* width: 400px; */
   aspect-ratio: 1/1;
   box-sizing: border-box;
   border-radius: 8px;
@@ -57,11 +57,12 @@
 }
 
 .img {
+  width: 400px;
+  object-fit: contain;
   max-inline-size: 100%;
   min-width: 100%;
   min-height: 100%;
   aspect-ratio: 1/1;
-  object-fit: cover;
 }
 
 /* 画像読込中の背景を縦スクロールするためのアニメーション */
