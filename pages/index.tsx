@@ -30,7 +30,6 @@ const IndexPage: NextPage<Props> = ({initialImageUrl }) => {
         {VarietyName: "affenpinscher"},
         {VarietyName: "african"},
         {VarietyName: "airedale"},
-        {VarietyName: ""}
     ]
 
 //     onDogSelectChange((selectedValue) => {
@@ -99,16 +98,17 @@ const IndexPage: NextPage<Props> = ({initialImageUrl }) => {
             <button onClick={handleClick} className={styles.button}>他のいんぬも見る</button>
             <div className={styles.frame}>{loading || <img src={imageUrl}/> }</div>
             {/* <div><img src={}/></div> */}
-            <form id="form">
-            <select name="select" id="" onChange={handleChange}>
-                {
-                    items.map(item => (
-                        <option value={item.VarietyName} key={item.VarietyName }>{item.VarietyName}</option>
-                    ))
-                    
-                }
-            </select>
-            <button>Ok</button>
+            <form id="form" className={styles.changing}>
+                <select name="select" id="" onChange={handleChange}>
+                    <option value="" placeholder="品種を選択してください" selected>品種を選択してください</option>
+                    {
+                        items.map(item => (
+                            <option value={item.VarietyName} key={item.VarietyName }>{item.VarietyName}</option>
+                        ))
+
+                    }
+                </select>
+                <button type="submit">Ok</button>
             <div className={styles.frame}>{loading || <img src={menu}/>}</div>
             </form>
         </div>
