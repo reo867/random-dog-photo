@@ -36,9 +36,9 @@ const DogBreedSelector:React.FC<Props> = ({}) => {
 
     return (
         <div>
-            <form id="form" className={styles.changing}>
+            {/* <form action=""> */}
                 <select name="select" id="" onChange={handleChange}>
-                    <option value="" placeholder="品種を選択してください" selected className={styles.optional}>品種を選択してください</option>
+                    <option value="" placeholder="品種を選択してください" className={styles.optional}>品種を選択してください</option>
                     {
                         items.map(item => (
                             <option value={item.VarietyName} key={item.VarietyName }>{item.VarietyName}</option>
@@ -46,8 +46,8 @@ const DogBreedSelector:React.FC<Props> = ({}) => {
 
                     }
                 </select>
-                <button>Ok</button>
-            </form>
+            <button className={styles.button} formTarget="button">ok</button>
+            {/* </form> */}
             <div className={styles.frame}>{loading || <img src={menu}/>}</div>
         </div>
     );
