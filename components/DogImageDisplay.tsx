@@ -55,8 +55,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 }
 
 const fetchImage = async (): Promise<Image> => {
-  const res = await fetch("https://dog.ceo/api/breeds/image/random");
-  const images:DogImageResponse = await res.json();
-  console.log(images);
-  return {url: images.message};
+    const res = await fetch("https://dog.ceo/api/breeds/image/random");
+    const images:DogImageResponse = await res.json();
+    console.log(images);
+    return {url: images.message};
 };

@@ -6,8 +6,8 @@ const Base = () => {
 
     return (
         <div className={styles.container}>
-        <DogImageDisplay />
-        <DogBreedSelector />
+        <DogImageDisplay initialImageUrl={""} />
+        <DogBreedSelector initialImageUrl={""} />
         </div>
     )
 }
