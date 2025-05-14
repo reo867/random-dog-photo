@@ -28,8 +28,9 @@ const DogBreedSelector:React.FC<Props> = ({}) => {
 const handleSelectChange = (e) => {
     setButtonText(e.target.value)
 }
-
-    const handleChange = async (e: { target: { value: SetStateAction<string>; }; }) => {
+// React.MouseEvent<HTMLButtonElement, MouseEvent>
+// { target: { value: SetStateAction<string>; }; }
+    const handleChange = async (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         setLoading(true);
         const DogName = buttonText
         const newChangeImage = await fetchImageSelect(DogName);
@@ -49,7 +50,7 @@ const handleSelectChange = (e) => {
 
                     }
                 </select>
-            <button className={styles.button} formTarget="button" onClick={() => (handleChange)}>ok</button>
+            <button className={styles.button} formTarget="button" onClick={handleChange}>ok</button>
             {/* </form> */}
             <div className={styles.frame}>{loading || <img src={menu}/>}</div>
         </div>
