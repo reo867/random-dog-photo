@@ -15,22 +15,22 @@ type DogImageResponse = {
     status: string;
 };
 
-let DogPhoto:string = ""
+// let DogPhoto:string = ""
 
 
 // レンダリングされる関数
 const IndexPage: NextPage<Props> = ({initialImageUrl }) => {
     const [imageUrl, setImageUrl] = useState(initialImageUrl);
     const [loading, setLoading ] = useState(false);
-    const [menu, setMenu] = useState("")
+    // const [menu, setMenu] = useState("")
 
     // const [imageUrl, setImageUrl] = useState()
 // 犬種を選択出来るプルダウンメニュー
-    const items = [
-        {VarietyName: "affenpinscher"},
-        {VarietyName: "african"},
-        {VarietyName: "airedale"},
-    ]
+    // const items = [
+    //     {VarietyName: "affenpinscher"},
+    //     {VarietyName: "african"},
+    //     {VarietyName: "airedale"},
+    // ]
 
 //     onDogSelectChange((selectedValue) => {
 //         if (Ok == true) {
@@ -85,20 +85,20 @@ const IndexPage: NextPage<Props> = ({initialImageUrl }) => {
         setImageUrl(newImage.url);
         setLoading(false);
     }
-    const handleChange = async (e: { target: { value: SetStateAction<string>; }; }) => {
-        setLoading(true);
-        const DogName = e.target.value
-        const newChangeImage = await fetchImageSelect(DogName);
-        setMenu(newChangeImage.url)
-        setLoading(false);
-    }
+    // const handleChange = async (e: { target: { value: SetStateAction<string>; }; }) => {
+    //     setLoading(true);
+    //     const DogName = e.target.value
+    //     const newChangeImage = await fetchImageSelect(DogName);
+    //     setMenu(newChangeImage.url)
+    //     setLoading(false);
+    // }
     // UIの領域
     return (
         <div className={styles.page}>
             <button onClick={handleClick} className={styles.button}>他のいんぬも見る</button>
             <div className={styles.frame}>{loading || <img src={imageUrl}/> }</div>
             {/* <div><img src={}/></div> */}
-            <form id="form" className={styles.changing}>
+            {/* <form id="form" className={styles.changing}>
                 <select name="select" id="" onChange={handleChange}>
                     <option value="" placeholder="品種を選択してください" selected>品種を選択してください</option>
                     {
@@ -110,7 +110,7 @@ const IndexPage: NextPage<Props> = ({initialImageUrl }) => {
                 </select>
                 <button type="submit">Ok</button>
             <div className={styles.frame}>{loading || <img src={menu}/>}</div>
-            </form>
+            </form> */}
         </div>
     );
 };
@@ -141,12 +141,12 @@ const fetchImage = async (): Promise<Image> => {
 //     location.href = document.getElementById("form").ariaSelected.valueOf;
 // }
 
-const fetchImageSelect = async (DogName): Promise<Image> => {
-    const res = await fetch(`https://dog.ceo/api/breed/${DogName}/images/random`);
-    const selectImages:DogImageResponse = await res.json();
-    console.log(selectImages);
-    return {url: selectImages.message};
-}
+// const fetchImageSelect = async (DogName): Promise<Image> => {
+//     const res = await fetch(`https://dog.ceo/api/breed/${DogName}/images/random`);
+//     const selectImages:DogImageResponse = await res.json();
+//     console.log(selectImages);
+//     return {url: selectImages.message};
+// }
 // const fetchImageAffenpinscher = async (): Promise<Image> => {
 //     const res = await fetch("https://dog.ceo/api/breed/affenpinscher/images/random")
 //     const images:DogImageResponse = await res.json()
