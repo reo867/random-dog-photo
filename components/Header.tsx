@@ -14,10 +14,10 @@ const Header =(props) => {
                 <nav>
                     <ul>
                         <li>
-                            <a href="http://localhost:3001/">one</a>
+                            <a href="/">one</a>
                         </li>
                         <li>
-                            <a href="http://localhost:3001/base">second</a>
+                            <a href="/base">second</a>
                         </li>
                     </ul>
                 </nav>
