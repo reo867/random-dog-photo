@@ -1,7 +1,10 @@
 import react from 'react';
+import { useRouter } from 'next/router';
 import styles from '../pages/index.module.css';
 
 const Header =(props) => {
+    const router = useRouter();
+
     return (
         <>
         <header>
@@ -14,10 +17,16 @@ const Header =(props) => {
                 <nav>
                     <ul>
                         <li>
-                            <a href="/">one</a>
+                            {/* <a href="/">home</a> */}
+                            <button type="button" onClick={() => router.push('/')}>
+                                home
+                            </button>
                         </li>
                         <li>
-                            <a href="/base">second</a>
+                            {/* <a href="/base">second</a> */}
+                            <button type='button' onClick={() => router.push('/base')}>
+                                Watch Dog!
+                            </button>
                         </li>
                     </ul>
                 </nav>
