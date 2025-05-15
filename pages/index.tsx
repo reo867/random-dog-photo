@@ -1,6 +1,7 @@
 import { GetServerSideProps, NextPage } from "next"
 import { SetStateAction, useEffect, useState } from "react";
 import styles from "./index.module.css"
+import Header from "../components/Header"
 
 // 型定義
 type Props = {
@@ -16,6 +17,7 @@ type DogImageResponse = {
 };
 
 // let DogPhoto:string = ""
+const introduction:string = "試しにボタンを押してみてね"
 
 
 // レンダリングされる関数
@@ -95,6 +97,7 @@ const IndexPage: NextPage<Props> = ({initialImageUrl }) => {
     // UIの領域
     return (
         <div className={styles.page}>
+            <Header introduction={introduction}/>
             <button onClick={handleClick} className={styles.button}>他のいんぬも見る</button>
             <div className={styles.frame}>{loading || <img src={imageUrl}/> }</div>
             {/* <div><img src={}/></div> */}
